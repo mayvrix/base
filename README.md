@@ -3,10 +3,10 @@
 A sleek, dark-themed music streaming application built with **Flutter**. Stream songs, create playlists, manage your library, and enjoy background audio playback — all powered by **Firebase** and **Supabase**.
 
 <div align="center">
-  <img src="sampleImage/01.png" height="600" alt="Home Screen"/>&nbsp;
-  <img src="sampleImage/02.png" height="600" alt="Music Player"/>&nbsp;
-  <img src="sampleImage/03.png" height="600" alt="Lyrics View"/>&nbsp;
-  <img src="sampleImage/04.png" height="600" alt="Playlist Screen"/>
+  <img src="sampleImage/01.png" height="200" alt="Home Screen"/>&nbsp;
+  <img src="sampleImage/02.png" height="200" alt="Music Player"/>&nbsp;
+  <img src="sampleImage/03.png" height="200" alt="Lyrics View"/>&nbsp;
+  <img src="sampleImage/04.png" height="200" alt="Playlist Screen"/>
 </div>
 
 ---
