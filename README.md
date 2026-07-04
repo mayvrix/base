@@ -3,10 +3,10 @@
 A sleek, dark-themed music streaming application built with **Flutter**. Stream songs, create playlists, manage your library, and enjoy background audio playback — all powered by **Firebase** and **Supabase**.
 
 <div align="center">
-  <img src="sampleImage/01.png" width="24%" alt="Home Screen"/>
-  <img src="sampleImage/02.png" width="24%" alt="Explore Screen"/>
-  <img src="sampleImage/03.png" width="24%" alt="Music Player"/>
-  <img src="sampleImage/04.png" width="24%" alt="Library Screen"/>
+  <img src="sampleImage/01.png" height="600" alt="Home Screen"/>&nbsp;
+  <img src="sampleImage/02.png" height="600" alt="Music Player"/>&nbsp;
+  <img src="sampleImage/03.png" height="600" alt="Lyrics View"/>&nbsp;
+  <img src="sampleImage/04.png" height="600" alt="Playlist Screen"/>
 </div>
 
 ---
@@ -34,6 +34,7 @@ A sleek, dark-themed music streaming application built with **Flutter**. Stream 
 | **Storage** | Supabase (Songs, Covers, Playlists) |
 | **Audio Engine** | just_audio + just_audio_background |
 | **State** | StatefulWidget + WidgetsBindingObserver |
+| **Secrets** | flutter_dotenv (`.env` file) |
 | **Font** | Poppins (Custom) |
 
 ---
@@ -64,6 +65,7 @@ A sleek, dark-themed music streaming application built with **Flutter**. Stream 
 | `permission_handler` | ^12.0.1 | Runtime permissions |
 | `uuid` | ^4.5.1 | Unique ID generation |
 | `flutter_native_splash` | ^2.4.6 | Native splash screen |
+| `flutter_dotenv` | ^5.2.1 | Environment variable loader |
 
 ### Dev Dependencies
 | Package | Version | Purpose |
@@ -97,20 +99,38 @@ A sleek, dark-themed music streaming application built with **Flutter**. Stream 
    flutter pub get
    ```
 
-3. **Configure Firebase**
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Fill in your keys in `.env`:
+   ```env
+   SUPABASE_URL=https://your-project.supabase.co
+   SUPABASE_ANON_KEY=your-anon-key
+   FIREBASE_ANDROID_API_KEY=your-api-key
+   FIREBASE_ANDROID_APP_ID=your-app-id
+   FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+   FIREBASE_PROJECT_ID=your-project-id
+   FIREBASE_STORAGE_BUCKET=your-bucket.firebasestorage.app
+   FIREBASE_WINDOWS_API_KEY=your-windows-api-key
+   FIREBASE_WINDOWS_APP_ID=your-windows-app-id
+   FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+   ```
+
+4. **Configure Firebase**
    - Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-   - Run `flutterfire configure` to generate `firebase_options.dart`
    - Place `google-services.json` in `android/app/`
 
-4. **Configure Supabase**
+5. **Configure Supabase**
    - Create a Supabase project at [supabase.com](https://supabase.com)
-   - Add your Supabase URL and anon key in `lib/main.dart`
    - Create storage buckets: `songs`, `covers`, `playlists`
 
-5. **Run the app**
+6. **Run the app**
    ```bash
    flutter run
    ```
+
+> ⚠️ **Note:** The `.env` file is git-ignored. Never commit your real keys. Use `.env.example` as a reference.
 
 ---
 

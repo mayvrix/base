@@ -4,6 +4,7 @@ import 'package:base/tools/bot_nav_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 import 'package:just_audio/just_audio.dart';
@@ -14,12 +15,14 @@ final AudioPlayer globalPlayer = AudioPlayer();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // ✅ Load environment variables
+  await dotenv.load(fileName: ".env");
+
   // ✅ Lock orientation to portrait only
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-
 
   // ✅ Transparent status bar with white text/icons
   SystemChrome.setSystemUIOverlayStyle(
@@ -27,7 +30,6 @@ Future<void> main() async {
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light, // Android
       statusBarBrightness: Brightness.dark, // iOS
-      
     ),
   );
 
@@ -36,8 +38,8 @@ Future<void> main() async {
   );
 
   await Supabase.initialize(
-    url: 'https://ecewuepokrwagkfhlwjd.supabase.co',
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVjZXd1ZXBva3J3YWdrZmhsd2pkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYwMTAyODYsImV4cCI6MjA3MTU4NjI4Nn0.F0fS2RIaBntjnysO2GZv69Xdxc1G_7x0nReNbw-hrb8',
+    url: dotenv.env['SUPABASE_URL']!,
+    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
   );
 
   await JustAudioBackground.init(

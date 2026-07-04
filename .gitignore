@@ -52,7 +52,6 @@ app.*.map.json
 # =============================================
 **/google-services.json
 **/GoogleService-Info.plist
-lib/firebase_options.dart
 firebase.json
 .firebaserc
 firebase_app_id_file.json
@@ -64,6 +63,7 @@ supabase/.env
 supabase/.temp/
 .env
 .env.*
+!.env.example
 
 # =============================================
 # 🔒 SECRETS / API KEYS
